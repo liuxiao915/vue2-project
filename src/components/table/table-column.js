@@ -28,7 +28,7 @@ export default {
         },
         createTime: {
             type: String,
-            default: false
+            default: ''
         }
     }
 }
