@@ -1,7 +1,7 @@
 <template>
   <div class="sapi-table">
     <sapi-table :data="tableData" header-row-class-name="project-table-header" :header-row-style="{background: '#2F88F6', color: '#ffffff'}">
-      <sapi-table-column header-align="center" align="center" width="110px" label="区域" prop="name"></sapi-table-column>
+      <sapi-table-column header-align="center" align="center" width="110px" label="区域" prop="name" fixed></sapi-table-column>
       <sapi-table-column header-align="center" align="center" width="60px" label="开发成本" prop="exploitCost">
         <!-- <template #default="scope">
                 <span>{{ scope.row.exploitCost | $utils.toThousands(2) }}</span>
