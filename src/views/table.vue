@@ -16,11 +16,11 @@
   </div>
 </template>
 <script>
-// import  sapiTable from '@/components/table/index.js'
-import  sapiTable from '@/components/table1/table.vue'
-import  sapiTableColumn from '@/components/table1/table-column.js'
+import  sapiTable from '@/components/table/index.js'
+// import  sapiTable from '@/components/table1/table.vue'
+// import  sapiTableColumn from '@/components/table1/table-column.js'
 export default {
-  components: {sapiTable, sapiTableColumn},
+  components: {sapiTable},
   data() {
     return {
       tableData: [

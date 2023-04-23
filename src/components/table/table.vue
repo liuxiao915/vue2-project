@@ -6,12 +6,13 @@
             </table>
         </div>
         <div class="sapi-table_body-wrap" :style="{ height: tableBodyHeight }">
-                <table :cell-bordered="false" class="sapi-table_body-table">
-                    <slot name="body"></slot>
-                </table>
+            <table :cell-bordered="false" class="sapi-table_body-table">
+                <slot name="body"></slot>
+            </table>
         </div>
-            
-        <div class="fixed-sapi-table_wrapper" v-if="fixedTableWidth" :style="{width: fixedTableWidth + 'px', height: tableHeight}">
+
+        <div class="fixed-sapi-table_wrapper" v-if="fixedTableWidth"
+            :style="{ width: fixedTableWidth + 'px', height: tableHeight }">
             <div class="fixed-sapi-table_header-wrap">
                 <table :cell-bordered="false" class="sapi-table_header-table sapi-table_fixed-header-table">
                     <slot name="header"></slot>
@@ -116,107 +117,117 @@ export default {
 </script>
 
 <style lang="less">
-    .table-cell.table-header-cell {
-        padding: 0 5px;
-        box-sizing: border-box;
-        font-weight: 600;
-    }
-    .table-cell {
-        line-height: 16px;
-        padding: 0 5px;
-        box-sizing: border-box;
+.table-cell.table-header-cell {
+    padding: 0 5px;
+    box-sizing: border-box;
+    font-weight: 600;
+}
+.table-cell {
+    line-height: 16px;
+    padding: 0 5px;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 1;
+}
+.sapi-table-wrapper {
+    width: 100%;
+    position: relative;
+    background: #ffffff;
+    z-index: 4;
+    transform: translateZ(0px);
+    -webkit-transform: translateZ(0px);
+    table {
+        font-size: 12px;
+        table-layout: fixed;
         position: relative;
-        z-index: 1;
+        tr {
+            background: #ffffff;
+            color: #606972;
+            th {
+                padding: 7px 0;
+
+                &:before,
+                &:after {
+                    display: none;
+                }
+            }
+            td {
+                padding: 9.5px 0;
+            }
+        }
+        tr.current-row>td {
+            background-color: #ecf5ff;
+        }
+        tr {
+            td,
+            th {
+                box-sizing: border-box;
+                text-overflow: ellipsis;
+                vertical-align: middle;
+                position: relative;
+                text-align: left;
+                line-height: 1;
+            }
+        }
     }
-    .sapi-table-wrapper {
+    .sapi-table_header-wrap {
+        width: 100%;
+        overflow: hidden;
+        position: relative;
+        z-index: 2;
+        table {
+            z-index: 2;
+        }
+    }
+    .sapi-table_body-wrap {
         width: 100%;
         position: relative;
+        overflow: auto;
+        z-index: 2;
+        table {
+            z-index: 2;
+            tbody,
+            tr,
+            td,
+            .table-cell,
+            .table-cell>span {
+                position: relative;
+                z-index: 2;
+            }
+        }
+    }
+    .fixed-sapi-table_wrapper {
+        position: absolute;
+        top: 0;
+        left: 0;
+        overflow: hidden;
+        box-shadow: 1px 0 3px #F5FFFA;
         background: #ffffff;
         z-index: 4;
-        transform: translateZ(0px);
-        -webkit-transform: translateZ(0px);
-        table {
-            font-size: 12px;
-            table-layout: fixed;
-            position: relative;
-            tr {
-                background: #ffffff;
-                color: #606972;
-                th {
-                    padding: 7px 0;
-                    &:before, &:after {
-                        display: none;
-                    }
-                }
-                td {
-                    padding: 9.5px 0;
-                }
-            }
-            tr.current-row>td {
-                background-color: #ecf5ff;
-            }
-            tr {
-                td, th {
-                    box-sizing: border-box;
-                    text-overflow: ellipsis;
-                    vertical-align: middle;
-                    position: relative;
-                    text-align: left;
-                    line-height: 1;
-                }
-            }
-        }
-        .sapi-table_header-wrap {
-            width: 100%;
-            overflow: hidden;
-            position: relative;
-            z-index: 2;
-            table {
-                z-index: 2;
-            }
-        }
-        .sapi-table_body-wrap {
-            width: 100%;
-            position: relative;
-            overflow: auto;
-            z-index: 2;
-            table {
-                z-index: 2;
-                tbody, tr, td, .table-cell, .table-cell>span {
-                    position: relative;
-                    z-index: 2;
-                }
-            }
-        }
-        .fixed-sapi-table_wrapper {
+        .fixed-sapi-table_header-wrap {
             position: absolute;
             top: 0;
             left: 0;
-            overflow: hidden;
-            box-shadow: 1px 0 3px #F5FFFA;
-            background: #ffffff;
             z-index: 4;
-            .fixed-sapi-table_header-wrap {
-                position: absolute;
-                top: 0;
-                left: 0;
+            table {
                 z-index: 4;
-                table {
-                    z-index: 4;
-                }
             }
-            .fixed-sapi-table_body-wrap {
-                position: absolute;
-                left: 0;
+        }
+        .fixed-sapi-table_body-wrap {
+            position: absolute;
+            left: 0;
+            z-index: 3;
+            table {
                 z-index: 3;
-                table {
+                tbody,
+                tr,
+                td,
+                .table-cell,
+                .table-cell>span {
+                    position: relative;
                     z-index: 3;
-                    tbody, tr, td, .table-cell, .table-cell>span {
-                        position: relative;
-                        z-index: 3;
-                    }
                 }
             }
         }
     }
-</style>
+}</style>
