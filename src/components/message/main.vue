@@ -37,7 +37,7 @@
       return {
         visible: false,
         message: '',
-        duration: 3000,
+        duration: 300000,
         type: 'info',
         iconClass: '',
         customClass: '',
@@ -117,6 +117,7 @@
 </script>
 <style lang="less">
 .message {
+  // display: flex;
   position: fixed;
   left: 50%;
   top: 20px;
@@ -126,12 +127,26 @@
   padding: 10px;
   display: flex;
   align-items: center;
+  width: 200px;
 }
 
-.el-message-fade-enter,
+.el-message-fade-enter-active,
 .el-message-fade-leave-active {
-  opacity: 0;
-  transform: translate(-50%, -100%);
+  // opacity: 0;
+  transform: translate(50%, 100%);
+  transition: opacity 0.5s ease;
+  color: red
 }
-
+.v-enter-from,
+.v-leave-to {
+  opacity: 0;
+}
+.v-enter-active,
+.v-leave-active {
+  transition: opacity 0.5s ease;
+}
+.v-enter-from,
+.v-leave-to {
+  opacity: 0;
+}
 </style>

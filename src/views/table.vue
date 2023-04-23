@@ -11,17 +11,20 @@
       <sapi-table-column header-align="center" align="center" width="60px" label="营销费用" prop="marketingCost"></sapi-table-column>
       <sapi-table-column header-align="center" align="center" width="60px" label="税金" prop="taxes"></sapi-table-column>
       <sapi-table-column header-align="center" align="center" width="60px" label="签约金额" prop="contractAmount"></sapi-table-column>
+      <sapi-table-column header-align="center" align="center" width="60px" label="签约" prop="contract"></sapi-table-column>
     </sapi-table>
   </div>
 </template>
 <script>
-import  sapiTable from '@/components/table/index.js'
+// import  sapiTable from '@/components/table/index.js'
+import  sapiTable from '@/components/table1/table.vue'
+import  sapiTableColumn from '@/components/table1/table-column.js'
 export default {
-  components: {sapiTable},
+  components: {sapiTable, sapiTableColumn},
   data() {
     return {
       tableData: [
-        {name: '区域', exploitCost: '111', managementCost: '222', marketingCost: '333', taxes: '444', contractAmount: '555'}
+        {name: '区域111', exploitCost: '111', managementCost: '222', marketingCost: '333', taxes: '444', contractAmount: '555', contract: '666'}
       ]
     }
   },
