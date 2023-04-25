@@ -1,19 +1,16 @@
 <template>
   <div id="app">
     <sapiTable />
-    <!-- <Message /> -->
   </div>
 </template>
 
 <script>
 import sapiTable from './views/table.vue'
-// import Message from './views/message.vue'
 
 export default {
   name: 'App',
   components: {
-    sapiTable,
-    // Message
+    sapiTable
   }
 }
 </script>
