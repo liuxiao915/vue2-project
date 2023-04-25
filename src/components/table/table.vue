@@ -199,7 +199,6 @@ export default {
     },
     watch: {
         data (val) {
-            console.log(val);
             if (this.lazyload && !this.isChangeByPullingUpLoad) {
                 this.loadFinished = false
                 // 懒加载自动填充满表格内容
@@ -458,6 +457,7 @@ export default {
             font-size: 12px;
             table-layout: fixed;
             position: relative;
+            border-spacing: 1px;
             tr {
                 background: #ffffff;
                 color: #606972;
